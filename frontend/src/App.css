@@ -1,0 +1,393 @@
+.auth-page {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.auth-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  max-width: 430px;
+  padding: 32px;
+  width: 100%;
+}
+
+.brand-mark {
+  align-items: center;
+  background: #dbeafe;
+  border-radius: 8px;
+  color: var(--primary);
+  display: inline-flex;
+  height: 52px;
+  justify-content: center;
+  margin-bottom: 16px;
+  width: 52px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.form label {
+  color: var(--text);
+  display: grid;
+  font-size: 14px;
+  font-weight: 700;
+  gap: 8px;
+}
+
+.form input,
+.form select,
+.form textarea {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  outline: none;
+  padding: 12px 14px;
+  width: 100%;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form textarea {
+  resize: vertical;
+}
+
+.form-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primary-btn,
+.secondary-btn,
+.icon-btn,
+.danger-btn {
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 8px;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.primary-btn:hover {
+  background: var(--primary-dark);
+}
+
+.secondary-btn,
+.icon-btn {
+  background: var(--panel-soft);
+  color: var(--text);
+}
+
+.danger-btn {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.auth-link {
+  color: var(--muted);
+  margin: 24px 0 0;
+  text-align: center;
+}
+
+.alert {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 14px;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.navbar {
+  align-items: center;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 16px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-brand,
+.nav-actions {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.nav-brand {
+  color: var(--primary);
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.user-chip {
+  background: var(--panel-soft);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 8px 12px;
+}
+
+.dashboard {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 32px;
+}
+
+.dashboard-header {
+  align-items: flex-end;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.stats span {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 8px 12px;
+}
+
+.workspace {
+  align-items: start;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 360px minmax(0, 1fr);
+  margin-top: 20px;
+}
+
+.todo-form-panel,
+.todo-list {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.todo-list {
+  display: grid;
+  gap: 14px;
+}
+
+.empty-state {
+  color: var(--muted);
+  min-height: 220px;
+  place-content: center;
+  text-align: center;
+}
+
+.todo-item {
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: 16px;
+}
+
+.todo-item.completed {
+  background: #f8fafc;
+}
+
+.todo-item.completed h3,
+.todo-item.completed p {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.check-btn {
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid var(--border);
+  border-radius: 7px;
+  color: #ffffff;
+  display: flex;
+  height: 26px;
+  justify-content: center;
+  margin-top: 2px;
+  padding: 0;
+  width: 26px;
+}
+
+.completed .check-btn {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.todo-content {
+  min-width: 0;
+}
+
+.todo-title-row {
+  align-items: start;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.todo-title-row h3,
+.todo-content p {
+  overflow-wrap: anywhere;
+}
+
+.todo-content p {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.todo-meta {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  font-size: 14px;
+  gap: 6px;
+}
+
+.priority {
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 5px 9px;
+  text-transform: capitalize;
+}
+
+.priority-low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.priority-medium {
+  background: #fef3c7;
+  color: var(--warning);
+}
+
+.priority-high {
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 860px) {
+  .navbar,
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-actions {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .dashboard {
+    padding: 22px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .auth-panel {
+    padding: 24px;
+  }
+
+  .form-grid,
+  .todo-item {
+    grid-template-columns: 1fr;
+  }
+
+  .check-btn {
+    margin-top: 0;
+  }
+
+  .todo-actions,
+  .todo-actions button,
+  .form-actions button {
+    width: 100%;
+  }
+}
