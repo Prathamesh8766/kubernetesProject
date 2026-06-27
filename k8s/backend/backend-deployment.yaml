@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: todo-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend-container
+          image: todo-backend:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: backend-config
+            - secretRef:
+                name: backend-secret
+
+# Notes:
+# - Use replicas, not replica.
+# - selector.matchLabels must match template.metadata.labels exactly.
+# - The pod label can be simple, for example app: backend.
+# - image is the Docker image name, not the word Dockerfile.
+# - imagePullPolicy: IfNotPresent is useful when using local images in Minikube.
+# - envFrom loads all values from backend-config and backend-secret into
+#   process.env inside Node.js.
+# - containerPort should match the app port, which is 8000 here.

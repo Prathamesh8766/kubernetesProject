@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: todo-app
+
+# Notes:
+# - Kubernetes kind names are case-sensitive. Use Namespace, not NameSpace.
+# - Apply this file first because the other YAML files use namespace: todo-app.

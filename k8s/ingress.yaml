@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-app-ingress
+  namespace: todo-app
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: todo.local
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 8000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
+
+# Notes:
+# - Use kind: Ingress, not kind: ingress.
+# - In networking.k8s.io/v1 the rule key is http, not https.
+# - host can be any local test domain. Here we use todo.local.
+# - /api routes browser API requests to backend-service:8000.
+# - / routes normal page requests to frontend-service:80.
+# - pathType: Prefix means /api also matches /api/todos and /api/auth/login.
+# - ingressClassName: nginx means this expects an Nginx Ingress Controller.
+# - For local testing, add the Ingress IP to /etc/hosts:
+#   <INGRESS_IP> todo.local

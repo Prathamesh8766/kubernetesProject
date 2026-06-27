@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+  namespace: todo-app
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+# Notes:
+# - PVC asks Kubernetes for storage.
+# - MongoDB data is stored on this volume so data survives pod restarts.
+# - ReadWriteOnce means one node can mount this volume for read/write.
+# - 1Gi is enough for learning. You can increase it later.

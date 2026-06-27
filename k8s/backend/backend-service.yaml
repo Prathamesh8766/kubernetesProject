@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: todo-app
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+
+# Notes:
+# - Use kind: Service, not kind: service.
+# - selector.app must match the pod label from backend-deployment.yaml.
+# - ports must be under spec, not inside selector.
+# - port is the Service port. Other pods will call backend-service:8000.
+# - targetPort is the container port where Express is listening, also 8000.
+# - ClusterIP means this Service is reachable only inside the Kubernetes cluster.

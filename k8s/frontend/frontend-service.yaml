@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: todo-app
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+# Notes:
+# - selector.app must match the pod label from frontend-deployment.yaml.
+# - port is the Service port. Other Kubernetes resources can call
+#   frontend-service:80.
+# - targetPort is the container port where Nginx is listening, also 80.
+# - ClusterIP keeps the Service internal. Later, Ingress will expose this app
+#   outside the cluster.

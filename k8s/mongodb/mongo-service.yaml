@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+  namespace: todo-app
+spec:
+  type: ClusterIP
+  selector:
+    app: mongodb
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+
+# Notes:
+# - backend should connect to mongodb-service, not MongoDB pod IP.
+# - Service gives MongoDB a stable DNS name inside Kubernetes.
+# - Other pods can reach MongoDB at mongodb-service:27017.
+# - ClusterIP means MongoDB is only reachable inside the cluster.

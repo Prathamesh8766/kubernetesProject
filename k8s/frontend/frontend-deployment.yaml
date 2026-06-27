@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: todo-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend-container
+          image: todo-frontend:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+
+# Notes:
+# - Fixed typo: fontend-deployment should be frontend-deployment.
+# - template must be under spec, not inside selector.
+# - selector.matchLabels must match template.metadata.labels exactly.
+# - Use ports, not port.
+# - containerPort is 80 because the frontend container runs Nginx on port 80.
+# - image is the Docker image name you build, for example todo-frontend:1.0.
+# - imagePullPolicy: IfNotPresent is useful when using local images in Minikube.

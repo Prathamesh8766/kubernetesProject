@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: todo-app
+
+data:
+  PORT: "8000"
+  NODE_ENV: production
+  MONGODB_URL: mongodb://admin:password123@mongodb-service:27017/todo-k8s?authSource=admin
+  JWT_EXPIRE: 5d
+
+# Notes:
+# - ConfigMap stores normal/non-sensitive configuration.
+# - data must be written as key: value, not PORT=8000.
+# - JWT_SECRET should not be here because it is sensitive; keep it in Secret.
+# - Do not use localhost for MongoDB in Kubernetes. localhost means inside the
+#   backend pod itself. Use the MongoDB Service name, like mongodb-service.
+# - This URL includes MongoDB credentials from mongo-secret. Later you can move
+#   the full MONGODB_URL into a Secret if you want to avoid exposing it here.
+# - PORT is 8000 because your backend Dockerfile exposes 8000 and frontend
+#   Nginx proxies API requests to backend-service:8000.
